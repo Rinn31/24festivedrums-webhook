@@ -18,5 +18,5 @@ def webhook():
 
     return jsonify({
         "fulfillmentText":
-        f"{greeting}! I am Yong Kang, a member of 24 Festive Drums. What is your name?"
+        f"{greeting}! I'm Yong Kang, your 24 Festive Drums learning assistant. What is your name?"
     })
