@@ -1,12 +1,13 @@
 from flask import Flask, jsonify, request
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 app = Flask(__name__)
 
 @app.route("/webhook", methods=["POST"])
 def webhook():
 
-    hour = datetime.now().hour
+    hour = datetime.now(ZoneInfo("Asia/Kuala_Lumpur")).hour
 
     if hour < 12:
         greeting = "Good morning"
@@ -19,7 +20,3 @@ def webhook():
         "fulfillmentText":
         f"{greeting}! I am Yong Kang, a member of 24 Festive Drums. What is your name?"
     })
-
-@app.route("/")
-def home():
-    return "Webhook is running!"
